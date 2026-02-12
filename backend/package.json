@@ -1,0 +1,23 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/plapers2/hospisoft#readme",
+  "bugs": {
+    "url": "https://github.com/plapers2/hospisoft/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plapers2/hospisoft.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
