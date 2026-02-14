@@ -1,5 +1,4 @@
 import { rolesModel } from "../models/roles.model.js";
-
 export const getRoles = async (req, res) => {
   try {
     const results = await rolesModel.findAll();
@@ -40,23 +39,23 @@ export const putRoles = async (req, res) => {
     });
   }
 };
-// export const activateRoles = async (req, res) => {
-//   try {
-//     const results = await rolesModel.activate(req.params.id);
-//     res.json({ results });
-//   } catch (error) {
-//     res.status(500).json({
-//       error: "error al activar el rol",
-//     });
-//   }
-// };
-// export const inactivateRoles = async (req, res) => {
-//   try {
-//     const results = await rolesModel.inactivate(req.params.id);
-//     res.json({ results });
-//   } catch (error) {
-//     res.status(500).json({
-//       error: "error al inactivar el rol",
-//     });
-//   }
-// };
+export const activateRoles = async (req, res) => {
+  try {
+    const results = await rolesModel.activate(req.params.id);
+    res.json({ results });
+  } catch (error) {
+    res.status(500).json({
+      error: "error al activar el rol",
+    });
+  }
+};
+export const inactivateRoles = async (req, res) => {
+  try {
+    const results = await rolesModel.inactivate(req.params.id);
+    res.json({ results });
+  } catch (error) {
+    res.status(500).json({
+      error: "error al inactivar el rol",
+    });
+  }
+};

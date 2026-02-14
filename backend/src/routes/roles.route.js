@@ -1,12 +1,10 @@
 import { Router } from "express";
 import * as rolesCtr from "../controller/roles.controller.js";
-
 const router = Router();
-
 router.get("/roles/listartodos", rolesCtr.getRoles);
 router.get("/roles/listarporid/:id", rolesCtr.getRolesById);
 router.post("/roles/crear", rolesCtr.postRoles);
 router.put("/roles/editar/:id", rolesCtr.putRoles);
-// router.put("/roles/activar/:id", rolesCtr.activateRoles);
-// router.put("/roles/desactivar/:id", rolesCtr.inactivateRoles);
+router.put("/roles/activar/:id", rolesCtr.activateRoles);
+router.put("/roles/desactivar/:id", rolesCtr.inactivateRoles);
 export default router;
