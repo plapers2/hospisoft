@@ -1,5 +1,4 @@
 import { medicamentosModel } from "../models/medicamentos.model.js";
-
 export const getMedicamentos = async (req, res) => {
   try {
     const results = await medicamentosModel.findAll();
@@ -40,23 +39,23 @@ export const putMedicamentos = async (req, res) => {
     });
   }
 };
-// export const activateMedicamentos = async (req, res) => {
-//   try {
-//     const results = await medicamentosModel.activate(req.params.id);
-//     res.json({ results });
-//   } catch (error) {
-//     res.status(500).json({
-//       error: "error al activar el medicamento",
-//     });
-//   }
-// };
-// export const inactivateMedicamentos = async (req, res) => {
-//   try {
-//     const results = await medicamentosModel.inactivate(req.params.id);
-//     res.json({ results });
-//   } catch (error) {
-//     res.status(500).json({
-//       error: "error al inactivar el medicamento",
-//     });
-//   }
-// };
+export const activateMedicamentos = async (req, res) => {
+  try {
+    const results = await medicamentosModel.activate(req.params.id);
+    res.json({ results });
+  } catch (error) {
+    res.status(500).json({
+      error: "error al activar el medicamento",
+    });
+  }
+};
+export const inactivateMedicamentos = async (req, res) => {
+  try {
+    const results = await medicamentosModel.inactivate(req.params.id);
+    res.json({ results });
+  } catch (error) {
+    res.status(500).json({
+      error: "error al inactivar el medicamento",
+    });
+  }
+};

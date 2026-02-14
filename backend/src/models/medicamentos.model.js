@@ -1,10 +1,8 @@
 //! Capa modelo para medicamentos
-
 //* Importacion de Base de datos
 import { cnx } from "./db.model.js";
 //* Se activa el manejo de promesas (async)
 const db = cnx.promise();
-
 export const medicamentosModel = {
   //? Listar todos los medicamentos
   findAll: async function () {
@@ -31,16 +29,16 @@ export const medicamentosModel = {
     const [rows] = await db.query(sql, [datos, id]);
     return [rows];
   },
-  // activate: async function (id) {
-  //   const sql = "UPDATE medicamentos SET estado = 'Activo' WHERE id = ?;";
-  //   //? Se almacenan los datos en un array
-  //   const [rows] = await db.query(sql, id);
-  //   return [rows];
-  // },
-  // inactivate: async function (id) {
-  //   const sql = "UPDATE medicamentos SET estado = 'Inactivo' WHERE id = ?;";
-  //   //? Se almacenan los datos en un array
-  //   const [rows] = await db.query(sql, id);
-  //   return [rows];
-  // },
+  activate: async function (id) {
+    const sql = "UPDATE medicamentos SET estado = 'Activo' WHERE id = ?;";
+    //? Se almacenan los datos en un array
+    const [rows] = await db.query(sql, id);
+    return [rows];
+  },
+  inactivate: async function (id) {
+    const sql = "UPDATE medicamentos SET estado = 'Inactivo' WHERE id = ?;";
+    //? Se almacenan los datos en un array
+    const [rows] = await db.query(sql, id);
+    return [rows];
+  },
 };
