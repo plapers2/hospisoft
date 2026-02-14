@@ -1,7 +1,7 @@
 // Importamos el modelo de USUARIOS
-import e from "express";
-import { UsuarioModel } from "../models/usuario.model.js";
+import { UsuarioModel } from "../models/usuarios.model.js";
 
+// Controlador para obtener todos los usuarios
 export const getUsuarios = async (req, res) => {
   try {
     const results = await UsuarioModel.findAll();
@@ -14,6 +14,7 @@ export const getUsuarios = async (req, res) => {
   }
 };
 
+// Controlador para obtener un unico usuario por ID
 export const getUsuarioById = async (req, res) => {
   try {
     const results = await UsuarioModel.findById(req.params.id);
@@ -25,6 +26,7 @@ export const getUsuarioById = async (req, res) => {
   }
 };
 
+// Controlador para crear un usuario
 export const createUsuario = async (req, res) => {
   try {
     const results = await UsuarioModel.create(req.body);
@@ -37,6 +39,7 @@ export const createUsuario = async (req, res) => {
   }
 };
 
+// controlador par actualizar un usuario
 export const updateUsuario = async (req, res) => {
   try {
     const results = await UsuarioModel.update(req.body, req.params.id);
@@ -48,18 +51,20 @@ export const updateUsuario = async (req, res) => {
   }
 };
 
-export const desactivarUsuario = async (req, res) => {
+// Controlador para inactivar un usuario
+export const inactiveUsuario = async (req, res) => {
   try {
     const results = await UsuarioModel.desactivar(req.params.id);
-    res.json({results});
+    res.json({ results });
   } catch (error) {
     res.status(500).json({
-      error: `Error al eliminar usuario: ${error}`
-    })
+      error: `Error al eliminar usuario: ${error}`,
+    });
   }
-}
+};
 
-export const activarUsuario = async (req, res) => {
+// Controlador para activar un usuario
+export const activeUsuario = async (req, res) => {
   try {
     const results = await UsuarioModel.activar(req.params.id);
     res.json({ results });

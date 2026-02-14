@@ -4,6 +4,7 @@ import cnx from "./db.model.js";
 // Habilitar las promesas en mysql2
 const db = cnx.promise();
 
+// Modelo para la entidad de USUARIOS
 export const UsuarioModel = {
   findAll: async () => {
     const sql = "SELECT * FROM usuarios";
