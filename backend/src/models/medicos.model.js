@@ -72,11 +72,11 @@ export const MedicoModel = {
 
   validateUpdateRol: async (id) => {
     const sql = "SELECT roles_id FROM usuarios WHERE id = ?";
-    const [rows] =await db.query(sql, [id]);
-    if(rows[0].roles_id === 2){
+    const [rows] = await db.query(sql, [id]);
+    if (rows[0].roles_id === 2) {
       return true;
-    }else{
+    } else {
       return false;
     }
-  }
+  },
 };
