@@ -29,46 +29,19 @@ export const getUsuarioById = async (req, res) => {
 export const createUsuario = async (req, res) => {
   try {
     const results = await UsuarioModel.create(req.body);
+    console.log(results)
     res.json({ results });
   } catch (error) {
     res.status(500).json({
       error: `Error al crear usuario: ${error}`,
     });
-
   }
 };
 
 // controlador par actualizar un usuario
 export const updateUsuario = async (req, res) => {
   try {
-    const id = req.params.id;
-    // Validar que el Num de doc no este repetido y no corresponda al mismo usuario
-    const validarID = await UsuarioModel.validateUpdateID(
-      req.body.num_documento,
-      id,
-    );
-
-    if (!validarID) {
-      res.status(400).json({
-        error: `Error: Número de documento repetido`,
-      });
-      return;
-    }
-
-    // Validar que el email no este repetido
-    const validarEmail = await UsuarioModel.validateUpdateEmail(
-      req.body.email,
-      id,
-    );
-    if (!validarEmail) {
-      res.status(400).json({
-        error: `Error: Email repetido`,
-      });
-      return;
-    }
-
-    // Envio de la peticion
-    const results = await UsuarioModel.update(req.body, id);
+    const results = await UsuarioModel.update(req.body, req.params.id);
     res.json({ results });
   } catch (error) {
     res.status(500).json({

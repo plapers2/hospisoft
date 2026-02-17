@@ -1,10 +1,11 @@
 import { UsuarioModel } from "../../../models/usuarios.model.js";
 
-export const validateDocUnicoCreate = async (req, res, next) => {
-  // Validar que el ID no este repetido
+// Validar que el num de doc no este repetido y no corresponda al mismo usuario
+export const validateDocUnicoUpdate = async (req, res, next) => {
   try {
-    const validarID = await UsuarioModel.validateCreateID(
+    const validarID = await UsuarioModel.validateUpdateID(
       req.body.num_documento,
+      req.params.id,
     );
 
     if (!validarID) {
@@ -13,7 +14,6 @@ export const validateDocUnicoCreate = async (req, res, next) => {
       });
     }
 
-    // Continua la ejecucion de los middlewares
     next();
   } catch (error) {
     return res.status(500).json({
@@ -22,9 +22,14 @@ export const validateDocUnicoCreate = async (req, res, next) => {
   }
 };
 
-export const validateEmailUnicoCreate = async (req, res, next) => {
+// Validar que el email no este repetido y no corresponda al mismo usuario
+export const validateEmailUnicoUpdate = async (req, res, next) => {
   try {
-    const validarEmail = await UsuarioModel.validateCreateEmail(req.body.email);
+    // Validar que el email no este repetido
+    const validarEmail = await UsuarioModel.validateUpdateEmail(
+      req.body.email,
+      req.params.id,
+    );
 
     if (!validarEmail) {
       return res.status(400).json({
@@ -32,10 +37,9 @@ export const validateEmailUnicoCreate = async (req, res, next) => {
       });
     }
 
-    // Continua la ejecucion de los middlewares
     next();
   } catch (error) {
-    return res.json(500)({
+    return res.status(500).json({
       error: "Error validando email",
     });
   }
