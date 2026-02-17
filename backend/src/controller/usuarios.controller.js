@@ -10,7 +10,6 @@ export const getUsuarios = async (req, res) => {
     res.status(500).json({
       error: `Error al listar los usuarios: ${error}`,
     });
-    console.log(`Error en el controlador: ${error}`);
   }
 };
 
@@ -20,42 +19,22 @@ export const getUsuarioById = async (req, res) => {
     const results = await UsuarioModel.findById(req.params.id);
     return res.json({ results });
   } catch (error) {
-    res
-      .status(500)
-      .json({ error: `Error al listar el usuario ${req.params.id}: ${error}` });
+    res.status(500).json({
+      error: `Error al listar el usuario ${req.params.id}: ${error}`,
+    });
   }
 };
 
 // Controlador para crear un usuario
 export const createUsuario = async (req, res) => {
   try {
-    // Validar que el ID no este repetido
-    const validarID = await UsuarioModel.validateCreateID(
-      req.body.num_documento,
-    );
-    if (!validarID) {
-      res.status(400).json({
-        error: `Error: Número de documento repetido`,
-      });
-      return;
-    }
-
-    // Validar que el email no este repetido
-    const validarEmail = await UsuarioModel.validateCreateEmail(req.body.email);
-    if (!validarEmail) {
-      res.status(400).json({
-        error: `Error: Email repetido`,
-      });
-      return;
-    }
-
     const results = await UsuarioModel.create(req.body);
     res.json({ results });
   } catch (error) {
     res.status(500).json({
       error: `Error al crear usuario: ${error}`,
     });
-    console.log(`Error al crear usuario: ${error}`);
+
   }
 };
 

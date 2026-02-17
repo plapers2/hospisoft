@@ -27,24 +27,8 @@ export const getMedicoById = async (req, res) => {
 // Controlador para crear un medico
 export const createMedico = async (req, res) => {
   try {
-    // Validar que el rol si sea medico
-    if (req.body.roles_id != 2) {
-      res.status(400).json({
-        error: `Error: Rol no valido`,
-      });
-      return;
-    }
-
-    // Validar que el ID no este repetido
-    const validarID = await MedicoModel.validateCreateID(
-      req.body.num_documento,
-    );
-    if (!validarID) {
-      res.status(400).json({
-        error: `Error: Número de documento repetido`,
-      });
-      return;
-    }
+   
+   
 
     // Validar que el email no este repetido
     const validarEmail = await MedicoModel.validateCreateEmail(req.body.email);
