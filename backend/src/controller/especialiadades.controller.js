@@ -52,7 +52,7 @@ export const updateEspecialidad = async (req, res) => {
   }
 };
 
-// Controlador para inactivar un usuario
+// Controlador para inactivar una especialidad
 export const inactiveEspecialidad = async (req, res) => {
   try {
     // Verificar que una especialidad no este asociada a un medico
@@ -72,7 +72,7 @@ export const inactiveEspecialidad = async (req, res) => {
   }
 };
 
-// Controlador para activar un usuario
+// Controlador para activar una especialidad
 export const activeEspecialidad = async (req, res) => {
   try {
     const results = await EspecialidadModel.activar(req.params.id);
