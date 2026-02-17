@@ -29,47 +29,6 @@ export const MedicoModel = {
     return rows;
   },
 
-  validateCreateID: async (num_documento) => {
-    const sql = "SELECT 1 FROM usuarios WHERE num_documento = ?";
-    const [rows] = await db.query(sql, [num_documento]);
-    if (rows.length > 0) {
-      return false;
-    } else {
-      return true;
-    }
-  },
-
-  validateUpdateID: async (num_documento, id) => {
-    const sql = "SELECT 1 FROM usuarios WHERE num_documento = ? AND id != ?";
-    const [rows] = await db.query(sql, [num_documento, id]);
-    if (rows.length > 0) {
-      return false;
-    } else {
-      return true;
-    }
-  },
-
-  validateCreateEmail: async (email) => {
-    const sql = "SELECT 1 FROM usuarios WHERE email = ?";
-    const [rows] = await db.query(sql, [email]);
-    if (rows.length > 0) {
-      return false;
-    } else {
-      return true;
-    }
-  },
-
-  validateUpdateEmail: async (email, id) => {
-    const sql = "SELECT 1 FROM usuarios WHERE email = ? AND id != ?";
-    const [rows] = await db.query(sql, [email, id]);
-    console.log(rows);
-    if (rows.length > 0) {
-      return false;
-    } else {
-      return true;
-    }
-  },
-
   validateUpdateRol: async (id) => {
     const sql = "SELECT roles_id FROM usuarios WHERE id = ?";
     const [rows] = await db.query(sql, [id]);

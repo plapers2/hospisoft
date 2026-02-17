@@ -27,18 +27,6 @@ export const getMedicoById = async (req, res) => {
 // Controlador para crear un medico
 export const createMedico = async (req, res) => {
   try {
-   
-   
-
-    // Validar que el email no este repetido
-    const validarEmail = await MedicoModel.validateCreateEmail(req.body.email);
-    if (!validarEmail) {
-      res.status(400).json({
-        error: `Error: Email repetido`,
-      });
-      return;
-    }
-
     const results = await MedicoModel.create(req.body);
     res.json({ results });
   } catch (error) {
@@ -51,54 +39,8 @@ export const createMedico = async (req, res) => {
 // Controlador para editar un medico
 export const updateMedico = async (req, res) => {
   try {
-    // ID del medico
-    const id = req.params.id;
-
-    // Validar que el id ingresado sea de un medico
-    const validarRol = await MedicoModel.validateUpdateRol(id);
-
-    if (!validarRol) {
-      res.status(400).json({
-        error: `Error: Rol no valido en la peticion`,
-      });
-      return;
-    }
-
-    // Validar que el rol sea el indicado para medico
-    if (req.body.roles_id != 2) {
-      res.status(400).json({
-        error: `Error: Rol no valido en el body`,
-      });
-      return;
-    }
-
-    // Validar que el Num de doc no este repetido y no corresponda al mismo usuario
-    const validarID = await MedicoModel.validateUpdateID(
-      req.body.num_documento,
-      id,
-    );
-
-    if (!validarID) {
-      res.status(400).json({
-        error: `Error: Número de documento repetido`,
-      });
-      return;
-    }
-
-    // Validar que el email no este repetido
-    const validarEmail = await MedicoModel.validateUpdateEmail(
-      req.body.email,
-      id,
-    );
-    if (!validarEmail) {
-      res.status(400).json({
-        error: `Error: Email repetido`,
-      });
-      return;
-    }
-
     // Envio de la peticion
-    const results = await MedicoModel.update(req.body, id);
+    const results = await MedicoModel.update(req.body, req.params.id);
     res.json({ results });
   } catch (error) {
     res.status(500).json({
