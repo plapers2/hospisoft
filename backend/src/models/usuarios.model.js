@@ -72,7 +72,6 @@ export const UsuarioModel = {
   validateUpdateEmail: async (email, id) => {
     const sql = "SELECT 1 FROM usuarios WHERE email = ? AND id != ?";
     const [rows] = await db.query(sql, [email, id]);
-    console.log(rows);
     if (rows.length > 0) {
       return false;
     } else {
