@@ -48,3 +48,27 @@ export const updateMedico = async (req, res) => {
     });
   }
 };
+
+// Controlador para inactivar un usuario
+export const inactiveUsuario = async (req, res) => {
+  try {
+    const results = await MedicoModel.desactivar(req.params.id);
+    res.json({ results });
+  } catch (error) {
+    res.status(500).json({
+      error: `Error al eliminar usuario: ${error}`,
+    });
+  }
+};
+
+// Controlador para activar un usuario
+export const activeUsuario = async (req, res) => {
+  try {
+    const results = await MedicoModel.activar(req.params.id);
+    res.json({ results });
+  } catch (error) {
+    res.status(500).json({
+      error: `Error al eliminar usuario: ${error}`,
+    });
+  }
+};

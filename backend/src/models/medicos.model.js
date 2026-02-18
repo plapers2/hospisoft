@@ -129,6 +129,19 @@ export const MedicoModel = {
 
     return rows;
   },
+  
+  desactivar: async (id) => {
+    const estado = "Inactivo";
+    const sql = "UPDATE usuarios SET estado = ? WHERE id = ?";
+    const [rows] = await db.query(sql, [estado, id]);
+    return rows;
+  },
+  activar: async (id) => {
+    const estado = "Activo";
+    const sql = "UPDATE usuarios SET estado = ? WHERE id = ?";
+    const [rows] = await db.query(sql, [estado, id]);
+    return rows;
+  },
 
   // !! falta validar
   validateUpdateRol: async (id) => {

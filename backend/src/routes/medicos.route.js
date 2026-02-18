@@ -35,4 +35,7 @@ router.put(
   medicoCtr.updateMedico,
 );
 
+router.put("/medicos/activar/:id", medicoCtr.activeUsuario);
+router.put("/medicos/desactivar/:id", medicoCtr.inactiveUsuario);
+
 export default router;
