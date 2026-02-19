@@ -1,7 +1,7 @@
 import express from "express";
 import cors from 'cors';
 //* Importar rutas
-import pacientesRutas from "./src/routes/pacientes.route.js";
+import pacientesRutas from "./src/routes/horariosMedicos.route.js";
 // Instancia global
 const app = express();
 
