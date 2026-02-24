@@ -6,12 +6,16 @@ export const validarRolPeticion = async (req, res, next) => {
 
     if (!validarRol) {
       return res.status(400).json({
-        error: `Error: Rol no valido en la peticion`,
+        success: false,
+        error: `Rol no valido para medico`,
       });
     }
 
     next();
   } catch (error) {
-    console.log(error);
+    res.status(500).json({
+      success: false,
+      error: "Error a la hora de validar rol de medico",
+    });
   }
 };

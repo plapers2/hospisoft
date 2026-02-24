@@ -10,13 +10,15 @@ export const validateDocUnicoUpdate = async (req, res, next) => {
 
     if (!validarID) {
       return res.status(400).json({
-        error: `Error: Número de documento repetido`,
+        success: false,
+        error: `Número de documento repetido`,
       });
     }
 
     next();
   } catch (error) {
     return res.status(500).json({
+      success: false,
       error: "Error validando documento",
     });
   }
