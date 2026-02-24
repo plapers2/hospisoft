@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import UsuarioRutas from "./src/routes/usuarios.route.js";
 import MedicoRutas from "./src/routes/medicos.route.js";
-import EspecialidadRutas from "./src/routes/especialidades.model.js";
+import EspecialidadRutas from "./src/routes/especialidades.route.js";
 
 // Instancia global
 const app = express();

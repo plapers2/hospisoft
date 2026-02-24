@@ -42,7 +42,6 @@ export const EspecialidadModel = {
     const sql =
       "SELECT 1 FROM usuarios_especialidades WHERE especialidades_id = ?";
     const [rows] = await db.query(sql, [idEspecialidad]);
-    console.log(rows);
     if (rows.length > 0) {
       return false;
     }
