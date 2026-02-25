@@ -1,19 +1,22 @@
 import express from "express";
 import cors from "cors";
+//* Import de rutas
 import UsuarioRutas from "./src/routes/usuarios.route.js";
 import MedicoRutas from "./src/routes/medicos.route.js";
 import EspecialidadRutas from "./src/routes/especialidades.route.js";
+import horariosMedicosRutas from "./src/routes/horariosMedicos.route.js";
 
-// Instancia global
+//* Instancia global
 const app = express();
 
-// Middlewares
+//* Middlewares
 app.use(cors());
 app.use(express.json());
 
-//Rutas
+//* Rutas
 app.use("/api", UsuarioRutas);
 app.use("/api", MedicoRutas);
 app.use("/api", EspecialidadRutas);
+app.use("/api", horariosMedicosRutas);
 
 export default app;

@@ -14,8 +14,7 @@ try {
     connectionLimit: 10,
     queueLimit: 0,
   });
-   console.log(`¡Conexión a MySQL exitosa!: ${process.env.PASSWORD}`);
-   
+  console.log(`¡Conexión a MySQL exitosa!: ${process.env.PASSWORD}`);
 } catch (error) {
   console.log(`Ha ocurrido un error en la conexion: ${error.message}`);
 }
