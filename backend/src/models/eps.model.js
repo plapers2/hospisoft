@@ -2,13 +2,13 @@ import cnx from "./db.model";
 
 const db = cnx.promise();
 
-export const eps = {
+export const EpsModel = {
   findAll: async () => {
     const sql = "SELECT * FROM eps";
     const [rows] = db.query(sql);
     return rows;
   },
-  findAll: async (id) => {
+  findById: async (id) => {
     const sql = "SELECT * FROM eps WHERE id = ?";
     const [rows] = db.query(sql, [id]);
     return rows;
