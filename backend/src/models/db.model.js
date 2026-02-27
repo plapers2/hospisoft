@@ -18,5 +18,4 @@ try {
 } catch (error) {
   console.log(`Ha ocurrido un error en la conexion: ${error.message}`);
 }
-
 export default cnx;
