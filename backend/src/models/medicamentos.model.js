@@ -18,15 +18,17 @@ export const medicamentosModel = {
     return [rows];
   },
   insert: async function (datos) {
-    const sql = "INSERT INTO medicamentos SET ?;";
+    const valorTotal = datos.stock_actual * datos.precio_unitario;
+    const sql = "INSERT INTO medicamentos SET ?, valor_total = ?;";
     //? Se almacenan los datos en un array
-    const [rows] = await db.query(sql, [datos]);
+    const [rows] = await db.query(sql, [datos, valorTotal]);
     return [rows];
   },
   update: async function (id, datos) {
-    const sql = "UPDATE medicamentos SET ? WHERE id = ?";
+    const valorTotal = datos.stock_actual * datos.precio_unitario;
+    const sql = "UPDATE medicamentos SET ?, valor_total = ? WHERE id = ?";
     //? Se almacenan los datos en un array
-    const [rows] = await db.query(sql, [datos, id]);
+    const [rows] = await db.query(sql, [datos, valorTotal, id]);
     return [rows];
   },
   activate: async function (id) {
