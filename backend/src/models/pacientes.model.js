@@ -6,7 +6,7 @@ import cnx from "./db.model.js";
 const db = cnx.promise();
 
 //* Modelo de pacientes
-export default pacientesModel = {
+export const pacientesModel = {
   //? Listar todos los pacientes
   findAll: async function () {
     const sql = "SELECT * FROM pacientes ORDER BY id ASC;";
