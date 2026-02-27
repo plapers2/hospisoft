@@ -1,5 +1,7 @@
+//* Se importa el modelo
 import { pacientesModel } from "../models/pacientes.model.js";
 
+//* Trae todos los pacientes
 export const getPacientes = async (req, res) => {
   try {
     const results = await pacientesModel.findAll();
@@ -10,6 +12,7 @@ export const getPacientes = async (req, res) => {
     });
   }
 };
+//* Trae paciente por ID
 export const getPacientesById = async (req, res) => {
   try {
     const results = await pacientesModel.findById(req.params.id);
@@ -20,6 +23,7 @@ export const getPacientesById = async (req, res) => {
     });
   }
 };
+//* Crea un paciente
 export const postPacientes = async (req, res) => {
   try {
     const results = await pacientesModel.insert(req.body);
@@ -30,6 +34,7 @@ export const postPacientes = async (req, res) => {
     });
   }
 };
+//* Modifica un paciente
 export const putPacientes = async (req, res) => {
   try {
     const results = await pacientesModel.update(req.params.id, req.body);
@@ -40,6 +45,7 @@ export const putPacientes = async (req, res) => {
     });
   }
 };
+//* Cambia estado a Activo
 export const activatePacientes = async (req, res) => {
   try {
     const results = await pacientesModel.activate(req.params.id);
@@ -50,6 +56,7 @@ export const activatePacientes = async (req, res) => {
     });
   }
 };
+//* Cambia estado a Inactivo
 export const inactivatePacientes = async (req, res) => {
   try {
     const results = await pacientesModel.inactivate(req.params.id);

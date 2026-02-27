@@ -3,6 +3,7 @@ import * as pacienteCtr from "../controller/pacientes.controller.js";
 
 const router = Router();
 
+//* Rutas
 router.get("/pacientes/listartodos", pacienteCtr.getPacientes);
 router.get("/pacientes/listarporid/:id", pacienteCtr.getPacientesById);
 router.post("/pacientes/crear", pacienteCtr.postPacientes);
