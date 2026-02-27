@@ -7,6 +7,7 @@ import EspecialidadRutas from "./src/routes/especialidades.route.js";
 import horariosMedicosRutas from "./src/routes/horariosMedicos.route.js";
 import medicamentosRutas from "./src/routes/medicamentos.route.js";
 import rolesRutas from "./src/routes/roles.route.js";
+import EpsRutas from "./src/routes/eps.route.js";
 
 //* Instancia global
 const app = express();
@@ -21,5 +22,6 @@ app.use("/api", EspecialidadRutas);
 app.use("/api", horariosMedicosRutas);
 app.use("/api", medicamentosRutas);
 app.use("/api", rolesRutas);
+app.use("/api", EpsRutas);
 
 export default app;
