@@ -1,12 +1,12 @@
 //! Capa modelo para pacientes
 
 //* Importacion de Base de datos
-import { cnx } from "./db.model.js";
+import cnx from "./db.model.js";
 //* Se activa el manejo de promesas (async)
 const db = cnx.promise();
 
 //* Modelo de pacientes
-export const pacientesModel = {
+export default pacientesModel = {
   //? Listar todos los pacientes
   findAll: async function () {
     const sql = "SELECT * FROM pacientes ORDER BY id ASC;";

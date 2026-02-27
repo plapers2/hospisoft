@@ -1,5 +1,5 @@
 //* Se importa el modelo
-import { pacientesModel } from "../models/pacientes.model.js";
+import pacientesModel from "../models/pacientes.model.js";
 
 //* Trae todos los pacientes
 export const getPacientes = async (req, res) => {

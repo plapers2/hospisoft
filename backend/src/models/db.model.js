@@ -13,4 +13,4 @@ try {
 } catch (error) {
   console.log(`Ah ocurrido un error en la cnx: ${error.message}`);
 }
-export { cnx };
+export default cnx;
