@@ -23,7 +23,7 @@ export const createEps = async (req, res) => {
     const results = await EpsModel.create(req.body);
     res.json({ results });
   } catch (error) {
-    res.status(500).json({ error: `Error al crear la EPS` });
+    res.status(500).json({ error: `Error al crear la EPS  ${error}` });
   }
 };
 
@@ -38,7 +38,7 @@ export const updateEps = async (req, res) => {
 
 export const inactiveEps = async (req, res) => {
   try {
-    const results = EpsModel.inactive(req.params.id);
+    const results = await EpsModel.inactive(req.params.id);
     res.json({ results });
   } catch (error) {
     res
@@ -49,7 +49,7 @@ export const inactiveEps = async (req, res) => {
 
 export const activeEps = async (req, res) => {
   try {
-    const results = EpsModel.active(req.params.id);
+    const results =await EpsModel.active(req.params.id);
     res.json({ results });
   } catch (error) {
     res.status(500).json({ error: `Error al activar la EPS ${req.params.id}` });

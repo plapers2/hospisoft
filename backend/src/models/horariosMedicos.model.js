@@ -1,7 +1,7 @@
 //! Capa modelo para horarios_medicos
 
 //* Importacion de Base de datos
-import { cnx } from "./db.model.js";
+import cnx from "./db.model.js";
 //* Se activa el manejo de promesas (async)
 const db = cnx.promise();
 
@@ -14,7 +14,8 @@ export const horariosMedicosModel = {
     return [rows];
   },
   findById: async function (id) {
-    const sql = "SELECT * FROM horarios_medicos WHERE usuarios_id = ? ORDER BY id ASC;";
+    const sql =
+      "SELECT * FROM horarios_medicos WHERE usuarios_id = ? ORDER BY id ASC;";
     //? Se almacenan los datos en un array
     const [rows] = await db.query(sql, id);
     return [rows];

@@ -5,6 +5,7 @@ import UsuarioRutas from "./src/routes/usuarios.route.js";
 import MedicoRutas from "./src/routes/medicos.route.js";
 import EspecialidadRutas from "./src/routes/especialidades.route.js";
 import horariosMedicosRutas from "./src/routes/horariosMedicos.route.js";
+import EpsRutas from "./src/routes/eps.route.js";
 
 //* Instancia global
 const app = express();
@@ -18,5 +19,6 @@ app.use("/api", UsuarioRutas);
 app.use("/api", MedicoRutas);
 app.use("/api", EspecialidadRutas);
 app.use("/api", horariosMedicosRutas);
+app.use("/api", EpsRutas);
 
 export default app;
