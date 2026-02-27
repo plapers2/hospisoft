@@ -1,6 +1,6 @@
 //! Capa modelo para roles
 //* Importacion de Base de datos
-import { cnx } from "./db.model.js";
+import cnx  from "./db.model.js";
 //* Se activa el manejo de promesas (async)
 const db = cnx.promise();
 export const rolesModel = {
