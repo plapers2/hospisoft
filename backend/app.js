@@ -6,6 +6,7 @@ import MedicoRutas from "./src/routes/medicos.route.js";
 import EspecialidadRutas from "./src/routes/especialidades.route.js";
 import horariosMedicosRutas from "./src/routes/horariosMedicos.route.js";
 import medicamentosRutas from "./src/routes/medicamentos.route.js";
+import rolesRutas from "./src/routes/roles.route.js";
 
 //* Instancia global
 const app = express();
@@ -13,12 +14,12 @@ const app = express();
 //* Middlewares
 app.use(cors());
 app.use(express.json());
-
 //* Rutas
 app.use("/api", UsuarioRutas);
 app.use("/api", MedicoRutas);
 app.use("/api", EspecialidadRutas);
 app.use("/api", horariosMedicosRutas);
 app.use("/api", medicamentosRutas);
+app.use("/api", rolesRutas);
 
 export default app;
