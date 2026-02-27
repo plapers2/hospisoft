@@ -34,6 +34,7 @@ export const MedicoModel = {
       fecha_vinculacion,
       roles_id,
       especialidades,
+      horarios_medicos,
     } = data;
 
     const medicoObj = {
@@ -66,6 +67,16 @@ export const MedicoModel = {
         especialidades_id,
       };
       let sqlPivote = "INSERT INTO usuarios_especialidades SET ?";
+      await db.query(sqlPivote, [pivoteObj]);
+    });
+
+    horarios_medicos.forEach(async (horarios_medicos_id) => {
+      const pivoteObj = {
+        usuarios_id,
+        horarios_medicos_id,
+      };
+
+      let sqlPivote = "INSERT INTO usuarios_horarios_medicos SET ?";
       await db.query(sqlPivote, [pivoteObj]);
     });
 
@@ -129,7 +140,7 @@ export const MedicoModel = {
 
     return rows;
   },
-  
+
   desactivar: async (id) => {
     const estado = "Inactivo";
     const sql = "UPDATE usuarios SET estado = ? WHERE id = ?";
